@@ -51,6 +51,16 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>me.jmarango</groupId>
+            <artifactId>spring-base-modules</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
@@ -75,6 +85,13 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>juan-releases</id>
+            <url>https://maven.jmarango.me/releases</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
