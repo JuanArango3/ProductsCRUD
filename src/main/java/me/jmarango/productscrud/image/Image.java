@@ -19,9 +19,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Image {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(nullable = false)
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     @ManyToOne
     private Product product;

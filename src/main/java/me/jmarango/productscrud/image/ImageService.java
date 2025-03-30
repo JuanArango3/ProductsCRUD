@@ -6,6 +6,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import me.jmarango.base.exception.NotFoundException;
 import me.jmarango.base.exception.code.BadRequestException;
 import me.jmarango.productscrud.image.validators.ImageValidator;
 import me.jmarango.productscrud.utils.FileUtils;
@@ -18,8 +19,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.time.Instant;
 import java.util.Set;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -77,6 +80,10 @@ public class ImageService {
         log.info("Deleted file {}", file.getAbsolutePath());
     }
 
+    public Image getImageById(UUID id) {
+        return imageRepository.findById(id).orElse(null);
+    }
+
     private void convertToWebP(ImmutableImage immutableImage, File output) throws IOException {
         try {
             immutableImage.output(WebpWriter.DEFAULT, output);
@@ -87,6 +94,20 @@ public class ImageService {
 
     private File getFile(String id) {
         return new File(uploadDir, id + ".webp");
+    }
+
+    public byte[] readImage(String id) {
+        Image image = getImageById(UUID.fromString(id));
+        if (image == null) {
+            throw new NotFoundException("Image not found");
+        }
+        File file = getFile(image.getId().toString());
+
+        try {
+            return Files.readAllBytes(file.toPath());
+        } catch (IOException ex) {
+            throw new RuntimeException("Error reading image", ex);
+        }
     }
 
 
@@ -109,7 +130,7 @@ public class ImageService {
         Set<Image> unusedImages = imageRepository.findImagesByUploadedAfter(Instant.now().minus(1, java.time.temporal.ChronoUnit.DAYS));
 
         unusedImages.forEach(image -> {
-            if (image.getProduct() != null && !image.getProduct().isEmpty()) return;
+            if (image.getProduct() != null) return;
             removeImage(image);
         });
     }
