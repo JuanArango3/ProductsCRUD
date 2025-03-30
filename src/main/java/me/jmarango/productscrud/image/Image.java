@@ -6,7 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.jmarango.productscrud.product.Product;
+import org.springframework.data.annotation.CreatedDate;
 
+import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -21,7 +24,12 @@ public class Image {
     @Column(nullable = false)
     private UUID id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @ManyToMany(mappedBy = "images")
+    private List<Product> product;
+
+    @OneToOne(mappedBy = "mainImage")
+    private Product productImage;
+
+    @CreatedDate
+    Instant dateUploaded = Instant.now();
 }
