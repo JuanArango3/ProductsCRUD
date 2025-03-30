@@ -3,6 +3,7 @@ package me.jmarango.productscrud.service;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import me.jmarango.base.exception.NotFoundException;
 import me.jmarango.productscrud.dto.UserDTO;
 import me.jmarango.productscrud.entity.User;
 import me.jmarango.productscrud.repository.UserRepository;
@@ -25,6 +26,14 @@ public class UserService {
         user.setRole(userDTO.role());
 
         return userRepository.save(user);
+    }
+
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username).orElse(null);
     }
 
     public UserDTO mapToDTO(User user) {
