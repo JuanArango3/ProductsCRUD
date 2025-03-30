@@ -2,9 +2,9 @@ package me.jmarango.productscrud.auth.service;
 
 import lombok.RequiredArgsConstructor;
 import me.jmarango.base.exception.UserWithUsernameAlreadyExistsException;
-import me.jmarango.productscrud.dto.UserDTO;
-import me.jmarango.productscrud.entity.User;
-import me.jmarango.productscrud.service.UserService;
+import me.jmarango.productscrud.user.UserDTO;
+import me.jmarango.productscrud.user.User;
+import me.jmarango.productscrud.user.UserService;
 import me.jmarango.security.dto.EnderUserDetails;
 import me.jmarango.security.dto.request.LoginRequest;
 import me.jmarango.security.dto.request.RefreshTokenRequest;
@@ -18,8 +18,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor

@@ -1,6 +1,5 @@
-package me.jmarango.productscrud.repository;
+package me.jmarango.productscrud.image;
 
-import me.jmarango.productscrud.entity.Image;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

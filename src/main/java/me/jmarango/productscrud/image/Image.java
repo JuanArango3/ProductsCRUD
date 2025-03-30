@@ -1,10 +1,11 @@
-package me.jmarango.productscrud.entity;
+package me.jmarango.productscrud.image;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import me.jmarango.productscrud.product.Product;
 
 import java.util.UUID;
 

@@ -1,6 +1,5 @@
-package me.jmarango.productscrud.repository;
+package me.jmarango.productscrud.product;
 
-import me.jmarango.productscrud.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {

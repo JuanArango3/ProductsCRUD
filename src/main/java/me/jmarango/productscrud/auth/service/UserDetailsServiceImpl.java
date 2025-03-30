@@ -1,9 +1,8 @@
 package me.jmarango.productscrud.auth.service;
 
 import lombok.RequiredArgsConstructor;
-import me.jmarango.base.exception.NotFoundException;
-import me.jmarango.productscrud.entity.User;
-import me.jmarango.productscrud.service.UserService;
+import me.jmarango.productscrud.user.User;
+import me.jmarango.productscrud.user.UserService;
 import me.jmarango.security.dto.EnderUserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

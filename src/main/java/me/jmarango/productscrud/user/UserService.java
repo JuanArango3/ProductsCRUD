@@ -1,12 +1,8 @@
-package me.jmarango.productscrud.service;
+package me.jmarango.productscrud.user;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.jmarango.base.exception.NotFoundException;
-import me.jmarango.productscrud.dto.UserDTO;
-import me.jmarango.productscrud.entity.User;
-import me.jmarango.productscrud.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

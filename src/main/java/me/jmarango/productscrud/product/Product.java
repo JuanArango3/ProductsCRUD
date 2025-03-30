@@ -1,10 +1,12 @@
-package me.jmarango.productscrud.entity;
+package me.jmarango.productscrud.product;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import me.jmarango.productscrud.image.Image;
+import me.jmarango.productscrud.user.User;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.Instant;

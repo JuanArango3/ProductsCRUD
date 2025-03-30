@@ -1,14 +1,13 @@
-package me.jmarango.productscrud.dto;
+package me.jmarango.productscrud.user;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import me.jmarango.productscrud.entity.User;
 import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 
 /**
- * DTO for {@link me.jmarango.productscrud.entity.User}
+ * DTO for {@link User}
  */
 public record UserDTO(
         Long id,

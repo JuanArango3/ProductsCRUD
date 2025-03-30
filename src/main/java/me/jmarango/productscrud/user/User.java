@@ -1,4 +1,4 @@
-package me.jmarango.productscrud.entity;
+package me.jmarango.productscrud.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
