@@ -11,7 +11,7 @@ public class AspectRatio implements ImageValidator {
 
     @Override
     public void validate(ImmutableImage image) throws ImageValidationException {
-        if (image.width / image.height != type.width / type.height) {
+        if ((float)image.width / image.height != (float) type.width / type.height) {
             throw new ImageValidationException("Invalid aspect ratio");
         }
     }
