@@ -34,12 +34,11 @@ public class Product {
     @JoinColumn(name = "author_id", nullable = false)
     private User author;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "image_id", nullable = false)
-    private Image mainImage;
 
-    @OneToMany(mappedBy = "product")
-    private List<Image> additionalImages;
+    // La primera imagen es la principal
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "product")
+    @OrderColumn
+    private List<Image> images;
 
     @Column(nullable = false)
     private float price;

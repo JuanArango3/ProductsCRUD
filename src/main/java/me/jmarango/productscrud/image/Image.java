@@ -9,7 +9,6 @@ import me.jmarango.productscrud.product.Product;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.Instant;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,11 +23,8 @@ public class Image {
     @Column(nullable = false)
     private UUID id;
 
-    @ManyToMany(mappedBy = "images")
-    private List<Product> product;
-
-    @OneToOne(mappedBy = "mainImage")
-    private Product productImage;
+    @ManyToOne
+    private Product product;
 
     @CreatedDate
     Instant dateUploaded = Instant.now();
