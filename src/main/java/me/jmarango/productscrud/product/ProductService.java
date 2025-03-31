@@ -14,6 +14,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -50,14 +51,21 @@ public class ProductService {
         Product product = getProductById(dto.getId());
         if (product == null) throw new NotFoundException("Product not found");
 
-        product = fillProduct(dto, product);
+        product.getImages().forEach(image -> image.setProduct(null));
+        product.getImages().clear();
+
+        fillProduct(dto, product);
 
         return productRepository.save(product);
     }
 
+    @Transactional
     public void deleteProduct(Long id) {
         Product product = getProductById(id);
         if (product == null) throw new NotFoundException("Product not found");
+
+        product.getImages().forEach(image -> image.setProduct(null));
+        product.getImages().clear();
 
         productRepository.delete(product);
     }
@@ -80,14 +88,16 @@ public class ProductService {
         product.setDescription(dto.getDescription());
         product.setPrice(dto.getPrice());
 
-        User author = userService.getUserById(dto.getAuthorId());
-        if (author == null) throw new BadRequestException("Author not found");
-        product.setAuthor(author);
+        if (dto.getAuthorId() != null) {
+            User author = userService.getUserById(dto.getAuthorId());
+            if (author == null) throw new BadRequestException("Author not found");
+            product.setAuthor(author);
+        }
 
         product.setImages(dto.getImageIds().stream().map(uuid -> {
             Image image = imageService.getImageById(uuid);
             if (image == null) throw new BadRequestException("Image not found");
-            if (image.getProduct() != null) throw new BadRequestException("Image already used in another product");
+            if (image.getProduct() != null && !Objects.equals(image.getProduct().getId(), product.getId())) throw new BadRequestException("Image already used in another product");
             image.setProduct(product);
             return image;
         }).collect(Collectors.toList()));
