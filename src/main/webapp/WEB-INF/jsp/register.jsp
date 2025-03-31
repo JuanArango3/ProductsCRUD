@@ -101,7 +101,7 @@
             .then(result => {
                 if (result.ok) {
                     // ÉXITO (status 2xx)
-                    localStorage.setItem("token", result.token);
+                    localStorage.setItem("token", result.body.token);
                     window.location.href = "/";
                     return;
                 }
