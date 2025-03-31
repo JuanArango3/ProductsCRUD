@@ -53,7 +53,7 @@
         <dependency>
             <groupId>me.jmarango</groupId>
             <artifactId>spring-base-modules</artifactId>
-            <version>0.1</version>
+            <version>0.1.1</version>
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
