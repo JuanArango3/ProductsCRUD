@@ -1,7 +1,6 @@
 package me.jmarango.productscrud.auth;
 
 import io.swagger.v3.oas.annotations.Parameter;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import me.jmarango.base.exception.UserWithUsernameAlreadyExistsException;
 import me.jmarango.productscrud.auth.service.AuthService;
@@ -13,6 +12,8 @@ import me.jmarango.security.dto.request.LoginRequest;
 import me.jmarango.security.dto.request.RegisterRequest;
 import me.jmarango.security.dto.response.TokenResponse;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor

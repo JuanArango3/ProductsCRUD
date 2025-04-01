@@ -2,8 +2,8 @@ package me.jmarango.productscrud.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;

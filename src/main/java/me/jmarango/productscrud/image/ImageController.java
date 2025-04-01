@@ -1,7 +1,7 @@
 package me.jmarango.productscrud.image;
 
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.jmarango.base.exception.NotFoundException;
@@ -35,7 +35,7 @@ public class ImageController {
             response.setContentType("image/webp");
             response.setContentLength(image.length);
 
-            CacheControl cacheControl = CacheControl.maxAge(Duration.ofDays(365)).cachePublic().immutable();
+            CacheControl cacheControl = CacheControl.maxAge(Duration.ofDays(365)).cachePublic();
             response.setHeader("Cache-Control", cacheControl.getHeaderValue());
 
             ServletOutputStream out = response.getOutputStream();

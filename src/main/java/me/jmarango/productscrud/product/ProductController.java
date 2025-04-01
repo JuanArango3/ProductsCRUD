@@ -1,7 +1,7 @@
 package me.jmarango.productscrud.product;
 
 import io.swagger.v3.oas.annotations.Parameter;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.jmarango.base.dto.request.PageableRequest;
