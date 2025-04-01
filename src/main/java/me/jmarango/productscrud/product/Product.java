@@ -1,6 +1,5 @@
 package me.jmarango.productscrud.product;
 
-import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +8,7 @@ import me.jmarango.productscrud.image.Image;
 import me.jmarango.productscrud.user.User;
 import org.springframework.data.annotation.CreatedDate;
 
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class Product {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 2000)
     private String description;
 
     @ManyToOne(optional = false)
