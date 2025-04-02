@@ -50,6 +50,7 @@ public class ProductService {
     public Product updateProduct(ProductDTO dto) {
         Product product = getProductById(dto.getId());
         if (product == null) throw new NotFoundException("Product not found");
+        dto.setAuthorId(product.getAuthor().getId());
 
         product.getImages().forEach(image -> image.setProduct(null));
         product.getImages().clear();
