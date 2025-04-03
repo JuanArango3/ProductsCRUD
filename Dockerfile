@@ -1,4 +1,4 @@
-FROM maven:3.9-eclipse-temurin-21 AS build
+FROM maven:3.9-eclipse-temurin-17 AS build
 
 
 WORKDIR /app
@@ -15,7 +15,7 @@ COPY frontend ./frontend
 RUN --mount=type=cache,target=/root/.m2 mvn package -DskipTests
 
 
-FROM tomcat:8-jdk21-temurin
+FROM tomcat:8.5-jdk17-temurin
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
