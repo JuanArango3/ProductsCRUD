@@ -56,18 +56,18 @@ Si deseas compilar la aplicación tú mismo:
 
 1.  **Clona el Repositorio:**
     ```bash
-    git clone [https://github.com/JuanArango3/ProductsCRUD.git](https://github.com/JuanArango3/ProductsCRUD.git)
+    git clone https://github.com/JuanArango3/ProductsCRUD.git
     cd ProductsCRUD
     ```
 2.  **Prerrequisito:** Necesitas tener instalado **Apache Maven** (versión 3.6 o superior).
-3.  **Configuración Backend (Opcional):** Si tu base de datos MySQL no está en `localhost:3306` o usa credenciales diferentes a `root`/`password`, edita el archivo `backend-api/src/main/resources/application.properties` y ajusta las propiedades `spring.datasource.url`, `spring.datasource.username` y `spring.datasource.password`. *(Nota: Los nombres de las carpetas de módulo son `backend-api` y `frontend-jsp` en la estructura multi-módulo sugerida)*.
+3.  **Configuración Backend (Opcional):** Si tu base de datos MySQL no está en `localhost:3306` o usa credenciales diferentes a `root`/`password`, edita el archivo `backend/src/main/resources/application.properties` y ajusta las propiedades `spring.datasource.url`, `spring.datasource.username` y `spring.datasource.password`.
 4.  **Compila y Empaqueta:** Desde el directorio raíz (`ProductsCRUD-Parent` o el nombre que le hayas dado), ejecuta:
     ```bash
     mvn clean package
     ```
 5.  **Encuentra los WARs:**
-    * El backend se encontrará en: `backend-api/target/api.war`
-    * El frontend se encontrará en: `frontend-jsp/target/ROOT.war`
+    * El backend se encontrará en: `backend/target/api.war`
+    * El frontend se encontrará en: `frontend/target/ROOT.war`
 6.  **Despliega:** Copia estos WARs generados a la carpeta `webapps` de tu Tomcat 8 y procede como en los pasos de "Ejecución en Local".
 
 ## Tecnologías Utilizadas
@@ -95,4 +95,4 @@ Si deseas compilar la aplicación tú mismo:
 * **Construcción:**
     * Apache Maven
 * **Despliegue:**
-* Docker (incluido en el Dockerfile)
+    * Docker (incluido en el Dockerfile)
