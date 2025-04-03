@@ -20,7 +20,7 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/image")
+@RequestMapping("/image")
 @Slf4j
 public class ImageController {
 
