@@ -61,7 +61,7 @@ Si deseas compilar la aplicación tú mismo:
     ```
 2.  **Prerrequisito:** Necesitas tener instalado **Apache Maven** (versión 3.6 o superior).
 3.  **Configuración Backend (Opcional):** Si tu base de datos MySQL no está en `localhost:3306` o usa credenciales diferentes a `root`/`password`, edita el archivo `backend/src/main/resources/application.properties` y ajusta las propiedades `spring.datasource.url`, `spring.datasource.username` y `spring.datasource.password`.
-4.  **Compila y Empaqueta:** Desde el directorio raíz (`ProductsCRUD-Parent` o el nombre que le hayas dado), ejecuta:
+4.  **Compila y Empaqueta:** Desde el directorio raíz (`ProductsCRUD`), ejecuta:
     ```bash
     mvn clean package
     ```
